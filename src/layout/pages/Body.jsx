@@ -66,6 +66,9 @@ function Body({ isShow }) {
         </Backdrop>
       ) : (
         <>
+          <div className="max-md:pt-[5rem]">
+            <ImageApiComp />
+          </div>
           <div className="flex will-change-transform min-w-[100%] bg-white w-[100dvw] pb-[10rem] max-md:pt-[10rem]">
             {showPreview && (
               <Preview

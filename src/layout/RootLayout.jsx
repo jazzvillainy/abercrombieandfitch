@@ -17,12 +17,17 @@ import { PreviewData } from "../context/PreviewDataContext";
 import MobilePreview from "../components/MobilePreview";
 
 function RootLayout() {
+  const { setIsShow } = useContext(MyContext);
   const [sideBar, setSideBar] = useState(false);
   const { isShow } = useContext(MyContext);
   const { showSearchBar } = useContext(SearchContext);
   const [showImage, setShowImage] = useState(true);
   const { pathname } = useLocation();
   const { smallPrev, setSmallPrev } = useContext(PreviewData);
+
+  const handleClick3 = () =>{
+    setIsShow(false)
+  }
   const handleSideBar2 = () => {
     setSideBar(false);
   };
@@ -41,16 +46,13 @@ function RootLayout() {
       {smallPrev && <MobilePreview />}
       {showImage && (
         <>
-          <div className="max-md:pt-[5rem]">
-            <ImageApiComp />
-          </div>
-          <div className="flex items-center justify-around h-20 w-full bg-[#242424] z-50 top-0 "></div>
+          {/* <div className="flex items-center justify-around h-20 w-full bg-[#242424] z-50 top-0 "></div> */}
         </>
       )}
       {sideBar && <SideBar handleSideBar2={handleSideBar2} />}
       <div>
         {/* <Nav /> */}
-        {isShow ? <CartOverlay /> : ""}
+        {isShow ? <CartOverlay handleClick3={handleClick3} /> : ""}
         <Outlet />
         {showSearchBar && <SearchBar />}
         <Footer />

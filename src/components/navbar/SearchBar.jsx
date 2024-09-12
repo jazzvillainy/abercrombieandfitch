@@ -9,7 +9,6 @@ import { Backdrop, CircularProgress } from "@mui/material";
 
 function SearchBar() {
   const { setShowSearchBar } = useContext(SearchContext);
-  // const { itemData } = useFetch("https://fakestoreapi.com/products/");
   const [state, setState] = useState("");
   const { IsLoading, error, itemData } = useFetch(
     "https://fakestoreapi.com/products/",
@@ -40,7 +39,7 @@ function SearchBar() {
 
   return (
     <div className="overlayTransparent relative">
-      <div className="bg-white overflow-y-scroll h-full w-2/5 right-0 absolute">
+      <div className="bg-transparent overflow-y-scroll h-full w-2/5 right-0 absolute">
         <span className="h-fit w-full bg-[#242424] text-white flex justify-between items-center">
           {/* <p> Search Item (1 item)</p> */}
           <input
@@ -64,26 +63,33 @@ function SearchBar() {
         </span>
         <div>
           {IsLoading ? (
-          <Backdrop
-            sx={(theme) => ({
-              color: "#fff",
-              zIndex: theme.zIndex.drawer + 1,
-              position: "relative",
-              height: "100dvh",
-            })}
-            open={open}
-          >
-            <CircularProgress color="inherit" />
-          </Backdrop>
-          ) :""
-          // {state.split("").map((letter, itemData) => {
-          //   for (let i = 0; i < itemData.length; i++) {
-          //     if (itemData[i].includes(letter)) {
-          //       return <div>{itemData[i].image}</div>;
-          //     }
-          //   }
-          // })}
-          }
+            <Backdrop
+              sx={(theme) => ({
+                color: "#fff",
+                zIndex: theme.zIndex.drawer + 1,
+                position: "relative",
+                height: "100dvh",
+              })}
+              open={open}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>
+          ) : (
+            <ul>
+              {itemData
+                .filter((item) => {
+                  item.category.includes(state);
+                })
+                .map((x) => {
+                  return (
+                    <li className="text-red-950 w-full h-full">
+                      <div>{x.image}</div>
+                      {/* <ImageBlock el={x} /> */}
+                    </li>
+                  );
+                })}
+            </ul>
+          )}
         </div>
       </div>
     </div>
