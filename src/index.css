@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+  /* border: solid; */
+}
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* position: relative; */
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  /* min-width: 320px; */
+  min-height: 100vh;
+  background-color: grey;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+
+
+
+.individualImageBlock:hover {
+  box-shadow: 0px 0px 0px 2px;
+  /* opacity: 0.8; */
+  transform: translateY(-8px);
+}
+
+
+
+
+
+
+
+
+.overlayTransparent{
+  height: 100%;
+  position: fixed;
+  background-color: #1a1a1a;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999;
+
+}
+
+
+div a{
+  color: white;
+}
+
