@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   Route,
   createRoutesFromElements,
   RouterProvider,
@@ -15,7 +15,7 @@ import SignUp, { signUpAction } from "./components/navbar/signup";
 import CheckoutPage from "./layout/pages/CheckoutPage";
 import NotFound from "./layout/pages/NotFound";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Body />} />
