@@ -16,26 +16,46 @@ function NavigatorHeader({ handleSideBar }) {
   return (
     <>
       <div className="flex items-center justify-around h-20 w-full bg-[#242424] z-50 top-0 max-md:fixed ">
-          <button
-            className=" absolute left-0 md:hidden rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
+        <button
+          className=" absolute left-0 md:hidden rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
           focus:ring-indigo-500"
-            onClick={handleSideBar}
-          >
-            menu
-          </button>
+          onClick={handleSideBar}
+        >
+          menu
+        </button>
         <div className=" max-md:hidden">
           <NavLink to="/" className="text-white">
-            <button className="rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800">
+            <button className=" rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800">
               Abercrombie & Fitch
             </button>
           </NavLink>
         </div>
 
         <div className="flex gap-[10px] max-md:hidden">
-          <NavLink to="men">Men's</NavLink>
-          <NavLink to="womens">Women's</NavLink>
-          <NavLink to="electronics">Electronics</NavLink>
-          <NavLink to="jewelry">Jewelries</NavLink>
+          <NavLink
+            className="focus-within:border-b focus-within:border-white focus-within:pb-7"
+            to="men"
+          >
+            Men's
+          </NavLink>
+          <NavLink
+            className="focus-within:border-b focus-within:border-white focus-within:pb-7"
+            to="womens"
+          >
+            Women's
+          </NavLink>
+          <NavLink
+            className="focus-within:border-b focus-within:border-white focus-within:pb-7"
+            to="electronics"
+          >
+            Electronics
+          </NavLink>
+          <NavLink
+            className="focus-within:border-b focus-within:border-white focus-within:pb-7"
+            to="jewelry"
+          >
+            Jewelries
+          </NavLink>
         </div>
 
         <div className="flex gap-[10px]">

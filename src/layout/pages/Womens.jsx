@@ -49,8 +49,8 @@ function Womens() {
           <CircularProgress color="inherit" />
         </Backdrop>
       ) : (
-        <div className="h-[100dvh] bg-white flex">
-          <div className="w-[100vw] flex justify-center p-20 max-425:p-0 h-fit bg-white">
+        <div className="h-[100%] bg-white p-10 max-md:pt-[20dvh] flex justify-center">
+          <div className="max-w-[99dvh] flex justify-center max-md:w-2/4 py-10 bg-white">
             <CarouselComp
               hidden={"hidden"}
               IsLoading={IsLoading}

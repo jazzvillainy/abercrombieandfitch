@@ -6,6 +6,7 @@ import ImageBlock from "../photoblock/ImageBlock";
 import { FaSearch } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 function SearchBar() {
   const { setShowSearchBar } = useContext(SearchContext);
@@ -39,12 +40,12 @@ function SearchBar() {
 
   return (
     <div className="overlayTransparent relative">
-      <div className="bg-transparent overflow-y-scroll h-full w-2/5 right-0 absolute">
-        <span className="h-fit w-full bg-[#242424] text-white flex justify-between items-center">
+      <div className="bg-white overflow-y-scroll h-full w-2/5 right-0 absolute">
+        <span className="h-[10dvh] w-full bg-[#242424] text-white flex justify-between items-center">
           {/* <p> Search Item (1 item)</p> */}
           <input
-            className="text-black"
-            placeholder="search items"
+            className="text-black right-0 w-2/3"
+            placeholder="🔍 Search Items"
             type="text"
             value={state}
             onChange={(e) => {
@@ -52,8 +53,8 @@ function SearchBar() {
             }}
           />
           <button
-            className="rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
- focus:ring-indigo-500"
+            className=" bg-opacity-50 z-50  border border-transparent text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
+ focus:ring-indigo-500 w-7 h-7 fixed right-5 top-5 rounded-[100%]"
             onClick={() => {
               setShowSearchBar(false);
             }}
@@ -75,17 +76,25 @@ function SearchBar() {
               <CircularProgress color="inherit" />
             </Backdrop>
           ) : (
-            <ul>
+            <ul className="p-4">
               {itemData
                 .filter((item) => {
-                  item.category.includes(state);
+                  return (
+                    item.category.split(" ").includes(state) ||
+                    item.title.split("").includes(state)
+                  );
                 })
                 .map((x) => {
                   return (
-                    <li className="text-red-950 w-full h-full">
-                      <div>{x.image}</div>
-                      {/* <ImageBlock el={x} /> */}
-                    </li>
+                    <NavLink to={`/${x.category}`}>
+                      <li
+                        key={x.id}
+                        className="text-black w-full hover:bg-stone-700 rounded-md h-full p-4"
+                      >
+                        <div>{x.title}</div>
+                        {/* <ImageBlock hidden={"hidden"} el={x} /> */}
+                      </li>
+                    </NavLink>
                   );
                 })}
             </ul>

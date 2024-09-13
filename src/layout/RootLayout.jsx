@@ -24,10 +24,9 @@ function RootLayout() {
   const [showImage, setShowImage] = useState(true);
   const { pathname } = useLocation();
   const { smallPrev, setSmallPrev } = useContext(PreviewData);
-
-  const handleClick3 = () =>{
-    setIsShow(false)
-  }
+  const [cartIsShowing, setCartIsShowing] = useState(false);
+  
+  
   const handleSideBar2 = () => {
     setSideBar(false);
   };
@@ -52,7 +51,7 @@ function RootLayout() {
       {sideBar && <SideBar handleSideBar2={handleSideBar2} />}
       <div>
         {/* <Nav /> */}
-        {isShow ? <CartOverlay handleClick3={handleClick3} /> : ""}
+        {isShow ? <CartOverlay setCartIsShowing={setCartIsShowing} /> : ""}
         <Outlet />
         {showSearchBar && <SearchBar />}
         <Footer />

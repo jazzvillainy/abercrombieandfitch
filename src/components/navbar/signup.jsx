@@ -4,6 +4,22 @@ import { IoArrowBackCircle } from "react-icons/io5";
 
 function SignUp() {
   const data = useActionData();
+  function BreadCrumbs() {
+    location = useLocation;
+
+    let currentLink = "";
+
+    const crumbs = location.pathname
+      .split("/")
+      .filter((crumb) => {
+        crumb !== " ";
+      })
+      .map((crumb) => {
+        currentLink += `/${crumb}`;
+      });
+
+    return currentLink;
+  }
   // const [FormInput, setFormInput] = useState({
   //   email: "",
   //   password: "",
@@ -46,21 +62,20 @@ function SignUp() {
             type="password"
             required
           />
-          {data && data.error && <p className="bg-red-400">{data.error}</p>}
           <input
             className="border-b-4 bg-transparent"
             placeholder="FIRSTNAME"
             name="firstName"
             type="text"
             required
-          />
+            />
           <input
             className="border-b-4 bg-transparent"
             placeholder="LASTNAME"
             name="lastName"
             type="text"
             required
-          />
+            />
           <label htmlFor="check">
             <input
               required
@@ -68,15 +83,16 @@ function SignUp() {
               name="check"
               placeholder="E-MAIL"
               type="checkbox"
-            />
+              />
             have read and understand the Privacy and Cookies Policy
           </label>
+            {data && data.error && <p className="bg-red-400">{data.error}</p>}
           <button
             type="submit"
             name="submit"
             className="rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
-          focus:ring-indigo-500 md:w-2/5"
-          >
+            focus:ring-indigo-500 md:w-2/5"
+            >
             CREATE ACCOUNT
           </button>
         </div>
@@ -104,6 +120,16 @@ export const signUpAction = async ({ request }) => {
   if (submission.password.length < 7) {
     return { error: "password must be over 7 chars long" };
   }
-
+  if(submission.password === submission.password.toUpperCase()){
+    
+    return { error: "Passwords must be in lowercase" };
+  }
+  if (submission.password.length > 11) {
+    return { error: "password must be under 11 chars long" };
+  }
+  if (!submission.email.includes("@")) {
+    return { error: "invalid email address" };
+  }
+  
   return redirect("/");
 };

@@ -27,11 +27,14 @@ function MobilePreview() {
   return (
     <div className="w-full h-full fixed backdrop-blur-sm top-0 z-50">
       <div className="bg-white flex flex-col gap-8 border-solid  border-2 h-dvh min-h-full max-[1024]:w-[40dvwb] sm:w-2/4 overflow-auto fixed z-50">
-        <button className="bg-stone-100" onClick={() => {
+        <button
+          className=" bg-opacity-50 z-50  border border-transparent text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
+ focus:ring-indigo-500 w-7 h-7 fixed md:translate-x-[23vw] rounded-[100%]"
+          onClick={() => {
             setSmallPrev(false);
-            console.log('dede');
-            
-            }}>
+            console.log("dede");
+          }}
+        >
           x
         </button>
         <img

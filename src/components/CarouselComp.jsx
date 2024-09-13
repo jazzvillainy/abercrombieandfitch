@@ -40,8 +40,8 @@ function CarouselComp({ cat, setData, setShowPreview, hidden }) {
   var settings = {
     dots: true, // Show dots navigation
     infinite: true, // Infinite loop
-    speed: 600, // Slide transition speed
-    slidesToShow: 3, // Number of slides visible at once
+    speed: 1000, // Slide transition speed
+    slidesToShow: 2, // Number of slides visible at once
     slidesToScroll: 1, // Number of slides to scroll at a time
     responsive: [
       {
@@ -54,7 +54,7 @@ function CarouselComp({ cat, setData, setShowPreview, hidden }) {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -98,7 +98,7 @@ function CarouselComp({ cat, setData, setShowPreview, hidden }) {
           {itemData
             .filter((item) => item.category === cat)
             .map((item) => (
-              <li className="" key={item.id}>
+              <li className="w-[100dvh] max-sm:ml-2 sm:ml-3 md:ml-1" key={item.id}>
                 <ImageBlock
                   setData={setData}
                   setShowPreview={setShowPreview}

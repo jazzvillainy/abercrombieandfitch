@@ -33,7 +33,6 @@ function ImageBlock({ el, hidden: hide, status }) {
             onClick={() => {
               setShowPreview(true);
               setData(el); //for preview mapping
-             
             }}
           >
             <LuView className="scale-150" />
@@ -45,22 +44,20 @@ function ImageBlock({ el, hidden: hide, status }) {
  focus:ring-indigo-500`}
             onClick={() => {
               setSmallPrev(true);
-              setShowPreview(true);
               setData(el);
-              setCartItems([...cartItems, el]);
             }}
           >
-            tiny prev
+            <LuView className="scale-150" />
           </button>
           <button
             className="rounded-md bg-opacity-50 z-50 p-4 border borders-transparent text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
  focus:ring-indigo-500"
             onClick={() => {
-            // addToCart(el),
-            // getTotalPriceForItem(el),
-            setTotalPrice(totalPrice + el.price)
-            setCartItems([...cartItems, el]);
-            setIsShow(true);
+              // addToCart(el),
+              // getTotalPriceForItem(el),
+              setTotalPrice(totalPrice + el.price);
+              setCartItems([...cartItems, el]);
+              setIsShow(true);
             }}
           >
             <FaShoppingCart className="scale-150" />
@@ -76,7 +73,7 @@ function ImageBlock({ el, hidden: hide, status }) {
         <p className="font-serif text-white">
           <b>{el.title.lenght > 12 ? el.title.slice(0, 12) : el.title}</b>
         </p>
-        <p>${el.price}</p>
+        <p className="text-white">${el.price}</p>
       </div>
       {/* <button className="text-gray-50">Preview</button> */}
     </div>

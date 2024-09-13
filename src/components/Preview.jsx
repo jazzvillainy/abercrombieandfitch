@@ -13,9 +13,12 @@ function Preview({ setShowPreview, IsLoading }) {
 
   return (
     <>
-
       <div className="flex flex-col gap-8 border-solid  border-2 h-dvh max-sm:w-[50%] max-[1024]:w-[40dvwb] sm:w-2/4 overflow-auto sticky max-md:hidden top-0">
-        <button className="bg-stone-100" onClick={() => setShowPreview(false)}>
+        <button
+          className=" bg-opacity-50 z-50  border border-transparent text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
+ focus:ring-indigo-500 w-7 h-7 fixed  rounded-[100%]"
+          onClick={() => setShowPreview(false)}
+        >
           x
         </button>
         <img
