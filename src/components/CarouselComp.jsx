@@ -9,7 +9,7 @@ import { FaLeaf } from "react-icons/fa";
 import { backdropClasses, Backdrop } from "@mui/material";
 import { circularProgressClasses, CircularProgress } from "@mui/material";
 
-function CarouselComp({ cat, setData, setShowPreview, hidden }) {
+function  CarouselComp({ cat, setData, setShowPreview, hidden }) {
   const { IsLoading, error, itemData } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
