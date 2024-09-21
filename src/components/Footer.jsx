@@ -32,7 +32,7 @@ function Footer() {
         <li>Gift Cards & E-Cards Balance</li>
         <li>My Account Currency</li>
       </ul>
-      <div className="flex flex-col gap-12 min-w-fit">
+      <div className="flex flex-col gap-12 min-w-64">
         <span className="text-white">
           <b>Subscribe</b>{" "}
         </span>

@@ -8,8 +8,8 @@ export default {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
-      "2xl": "1536px",
-      380: "380px",
+      xxl: "1536px",
+      ssm: "380px",
       320: "320px", // Custom breakpoint
     },
   },

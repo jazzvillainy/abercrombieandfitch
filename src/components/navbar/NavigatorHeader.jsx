@@ -7,6 +7,8 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { CartList } from "../../context/CartItemContext";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 
 function NavigatorHeader({ handleSideBar }) {
   const { setIsShow } = useContext(MyContext);
@@ -21,7 +23,7 @@ function NavigatorHeader({ handleSideBar }) {
           focus:ring-indigo-500"
           onClick={handleSideBar}
         >
-          menu
+          <GiHamburgerMenu />
         </button>
         <div className=" max-md:hidden">
           <NavLink to="/" className="text-white">
@@ -34,13 +36,13 @@ function NavigatorHeader({ handleSideBar }) {
         <div className="flex gap-[10px] max-md:hidden">
           <NavLink
             className="focus-within:border-b focus-within:border-white focus-within:pb-7"
-            to="men"
+            to="men's"
           >
             Men's
           </NavLink>
           <NavLink
             className="focus-within:border-b focus-within:border-white focus-within:pb-7"
-            to="womens"
+            to="women's"
           >
             Women's
           </NavLink>
@@ -52,7 +54,7 @@ function NavigatorHeader({ handleSideBar }) {
           </NavLink>
           <NavLink
             className="focus-within:border-b focus-within:border-white focus-within:pb-7"
-            to="jewelry"
+            to="jewelery"
           >
             Jewelries
           </NavLink>

@@ -6,8 +6,60 @@
 
 *{
   /* border: solid; */
+  /* box-sizing: border-box; */
+  /* margin: 0;
+  padding: 0; */
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
+#root{
+  width: 100%;
+}
+
+.scrollDown{
+  height: 50px;
+  width: 50px;
+  background-color:#242424;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  border-radius: 50%;
+}
+
+
+
+.scrollDown::before{
+  content: "";
+  border: 2px solid white;
+  position: absolute;
+  left: 40%;
+  /* top: ; */
+  height: 10px;
+  width: 10px;
+  transform: rotate(45deg);
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll 1s ease-in-out infinite;
+
+}
+
+@keyframes scroll{
+  0%{
+    opacity: 0;
+    top: 0%;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    top: 80%;
+  }
+
+}
 
 a {
   font-weight: 500;
@@ -29,7 +81,8 @@ body {
   /* min-width: 320px; */
   min-height: 100vh;
   background-color: grey;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  /* max-width: 100dvw; */
 }
 
 h1 {

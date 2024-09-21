@@ -9,6 +9,7 @@ import { circularProgressClasses, CircularProgress } from "@mui/material";
 import NavigatorHeader from "../../components/navbar/NavigatorHeader";
 import { PreviewData } from "../../context/PreviewDataContext";
 import useFetch from "../../context/useFetch";
+import smoothScrollToBottom from "../../assets/Scroll";
 
 function Body({ isShow }) {
   // const classes = useStyles
@@ -31,7 +32,7 @@ function Body({ isShow }) {
   if (error) {
     // throw " ";
     return (
-      <section className="bg-stone-100 text-center flex flex-col justify-center align-middle h-[100dvh]">
+      <section className="bg-stone-100 text-center flex flex-col justify-center w-[100%] align-middle h-[100dvh]">
         <>
           <div className=" text-xl bg-stone-100">
             <b>{(error.message = "Check your internet connection")}</b>
@@ -66,15 +67,24 @@ function Body({ isShow }) {
         </Backdrop>
       ) : (
         <>
-          <div className="max-md:pt-[5rem]">
+          <div className="max-md:pt-[5rem] max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:h-[100dvh] sm:h-[100dvh] bg-white">
             <ImageApiComp />
+            <button
+              onClick={() => smoothScrollToBottom()}
+              className="scrollDown"
+            ></button>
           </div>
-          <div className="flex will-change-transform min-w-[100%] bg-white w-[100dvw] pb-[10rem] max-md:pt-[10rem]">
+          <div
+            id="section-2"
+            className="flex will-change-transform bg-white w-[100%]  pb-[10rem] max-md:pt-[2rem]"
+          >
             {showPreview && (
+              // <div className="w-4/10">
               <Preview
                 // hidden={true}
                 setShowPreview={setShowPreview}
               />
+              // </div>
             )}
             <>
               <Content

@@ -19,13 +19,13 @@ const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Body />} />
-      <Route path="Men" element={<Men />} />
-      <Route path="womens" element={<Womens />} />
+      <Route path="men's" element={<Men />} />
+      <Route path="women's" element={<Womens />} />
       <Route path="electronics" element={<Electronics />} />
-      <Route path="jewelry" element={<Active />} />
-      <Route path="signup" element={<SignUp />} action={signUpAction}/>
+      <Route path="jewelery" element={<Active />} />
+      <Route path="signup" element={<SignUp />} action={signUpAction} />
       <Route path="checkout" element={<CheckoutPage />} />
-      <Route path="*" element={<NotFound/>} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

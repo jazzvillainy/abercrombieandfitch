@@ -13,7 +13,7 @@ function Preview({ setShowPreview, IsLoading }) {
 
   return (
     <>
-      <div className="flex flex-col gap-8 border-solid  border-2 h-dvh max-sm:w-[50%] max-[1024]:w-[40dvwb] sm:w-2/4 overflow-auto sticky max-md:hidden top-0">
+      <div className="flex flex-col w-3/5 gap-8 border-solid  border-2 h-[100dvh] max-sm:w-[50%] max-[1024]:w-[40dvwb] overflow-auto sticky max-md:hidden top-0">
         <button
           className=" bg-opacity-50 z-50  border border-transparent text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
  focus:ring-indigo-500 w-7 h-7 fixed  rounded-[100%]"
@@ -36,7 +36,7 @@ function Preview({ setShowPreview, IsLoading }) {
         <div className="flex justify-center"></div>
         <article className="bg-stone-900 p-9 gap-4 flex flex-col">
           <b className="bg-stone-500 rounded text-white p-4">Description :</b>{" "}
-          <p className="text-yellow-50 rounded bg-black p-4">
+          <p className="text-yellow-50 overflow-x-auto rounded bg-black p-4">
             {data.description}
           </p>
         </article>

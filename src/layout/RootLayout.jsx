@@ -25,22 +25,21 @@ function RootLayout() {
   const { pathname } = useLocation();
   const { smallPrev, setSmallPrev } = useContext(PreviewData);
   const [cartIsShowing, setCartIsShowing] = useState(false);
-  
-  
+
   const handleSideBar2 = () => {
     setSideBar(false);
   };
   const handleSideBar = () => {
     setSideBar(true);
   };
-  useEffect(()=>{
+  useEffect(() => {
     if (pathname !== "/") {
       setShowImage(false);
     }
-  },[pathname])
+  }, [pathname]);
   return (
     <>
-      <Login />
+      {/* <Login /> */}
       <NavigatorHeader handleSideBar={handleSideBar} />
       {smallPrev && <MobilePreview />}
       {showImage && (
@@ -49,13 +48,12 @@ function RootLayout() {
         </>
       )}
       {sideBar && <SideBar handleSideBar2={handleSideBar2} />}
-      <div>
-        {/* <Nav /> */}
-        {isShow ? <CartOverlay setCartIsShowing={setCartIsShowing} /> : ""}
-        <Outlet />
-        {showSearchBar && <SearchBar />}
-        <Footer />
-      </div>
+
+      {/* <Nav /> */}
+      {isShow ? <CartOverlay setCartIsShowing={setCartIsShowing} /> : ""}
+      <Outlet />
+      {showSearchBar && <SearchBar />}
+      <Footer />
     </>
   );
 }

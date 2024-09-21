@@ -7,8 +7,17 @@ import { FaSearch } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { PreviewData } from "../../context/PreviewDataContext";
 
 function SearchBar() {
+  const {
+    data,
+    setData,
+    showPreview,
+    setShowPreview,
+    smallPrev,
+    setSmallPrev,
+  } = useContext(PreviewData);
   const { setShowSearchBar } = useContext(SearchContext);
   const [state, setState] = useState("");
   const { IsLoading, error, itemData } = useFetch(
@@ -19,7 +28,7 @@ function SearchBar() {
   if (error) {
     // throw " ";
     return (
-      <section className="bg-stone-100 text-center flex flex-col justify-center align-middle w- h-[100dvh]">
+      <section className="bg-stone-100 text-center flex flex-col justify-center align-middle">
         <>
           <div className=" text-xl">
             <b>{(error.message = " . check your internet connection")}</b>
@@ -40,12 +49,13 @@ function SearchBar() {
 
   return (
     <div className="overlayTransparent relative">
-      <div className="bg-white overflow-y-scroll h-full w-2/5 right-0 absolute">
+      <div className="bg-white overflow-y-scroll h-full w-3/5 right-0 top-0 bottom-0 absolute">
         <span className="h-[10dvh] w-full bg-[#242424] text-white flex justify-between items-center">
           {/* <p> Search Item (1 item)</p> */}
           <input
+          id="search"
             className="text-black right-0 w-2/3"
-            placeholder="🔍 Search Items"
+            placeholder=" Search Items"
             type="text"
             value={state}
             onChange={(e) => {
@@ -80,14 +90,27 @@ function SearchBar() {
               {itemData
                 .filter((item) => {
                   return (
+                    // console.log(item.category);
+
                     item.category.split(" ").includes(state) ||
                     item.title.split("").includes(state)
                   );
                 })
                 .map((x) => {
                   return (
-                    <NavLink to={`/${x.category}`}>
+                    <NavLink
+                    // to={`/${
+                    //   x.category.includes("clothing")
+                    //     ? x.category.replace("clothing", "").replace(" ", "")
+                    //     : x.category
+                    // }`}
+                    >
                       <li
+                        onClick={() => {
+                          setData(x);
+                          setSmallPrev(true);
+                          setShowSearchBar(false);
+                        }}
                         key={x.id}
                         className="text-black w-full hover:bg-stone-700 rounded-md h-full p-4"
                       >

@@ -18,7 +18,7 @@ function  CarouselComp({ cat, setData, setShowPreview, hidden }) {
   if (error) {
     // a spinner colud be more appropriate
     return (
-      <section className="bg-stone-100 text-center flex flex-col justify-center align-middle w- h-[100dvh]">
+      <section className="bg-stone-100 text-center flex flex-col justify-center align-middle h-[100dvh]">
         <>
           <div className=" text-xl">
             <b>{(error.message = "Check your internet connection")}</b>
@@ -40,7 +40,7 @@ function  CarouselComp({ cat, setData, setShowPreview, hidden }) {
   var settings = {
     dots: true, // Show dots navigation
     infinite: true, // Infinite loop
-    speed: 1000, // Slide transition speed
+    speed: 3000, // Slide transition speed
     slidesToShow: 2, // Number of slides visible at once
     slidesToScroll: 1, // Number of slides to scroll at a time
     responsive: [
@@ -90,7 +90,7 @@ function  CarouselComp({ cat, setData, setShowPreview, hidden }) {
   };
 
   return (
-    <div className="w-[100%] h-[60dvh] ">
+    <div className="w-[80dvw] h-[60dvh] ">
       {IsLoading ? (
         <CircularProgress color="inherit" />
       ) : (
@@ -98,7 +98,10 @@ function  CarouselComp({ cat, setData, setShowPreview, hidden }) {
           {itemData
             .filter((item) => item.category === cat)
             .map((item) => (
-              <li className="w-[100dvh] max-sm:ml-2 sm:ml-3 md:ml-1" key={item.id}>
+              <li
+                className=" w-[100dvh] ssm:p-5 max-sm:ml-2 md:translate-x-[15%] m-auto sm:ml-3 md:ml-1"
+                key={item.id}
+              >
                 <ImageBlock
                   setData={setData}
                   setShowPreview={setShowPreview}
