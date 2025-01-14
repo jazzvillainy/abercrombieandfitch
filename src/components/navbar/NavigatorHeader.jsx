@@ -53,7 +53,7 @@ function NavigatorHeader({ handleSideBar }) {
             Electronics
           </NavLink>
           <NavLink
-            className="focus-within:border-b focus-within:border-white focus-within:pb-7"
+            className="bg-primary focus-within:border-b focus-within:border-white focus-within:pb-7"
             to="jewelery"
           >
             Jewelries

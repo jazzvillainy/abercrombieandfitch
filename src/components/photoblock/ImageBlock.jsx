@@ -6,6 +6,7 @@ import { Total } from "../../context/CartTotalPrice";
 import { MyContext } from "../../context/Context";
 import { PreviewData } from "../../context/PreviewDataContext";
 import { AddToCartContext } from "../../context/AddToCartContext";
+
 function ImageBlock({ el, hidden: hide, status }) {
   const [isOnMouseOver, setIsMouseOver] = useState(false);
   const { cartItems, setCartItems } = useContext(CartList);

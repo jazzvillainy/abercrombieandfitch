@@ -91,7 +91,7 @@ function SearchBar() {
                 .filter((item) => {
                   return (
                     // console.log(item.category);
-
+                    item.category.includes(state) ||
                     item.category.split(" ").includes(state) ||
                     item.title.split("").includes(state)
                   );

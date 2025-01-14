@@ -9,7 +9,7 @@ import { PreviewContext } from "../context/PreviewContext";
     const {
       data: itemData,
       isLoading: IsLoading,
-      error: error,
+      error: error, refetch
     } = useQuery({
       queryKey: [key],
       queryFn: () =>

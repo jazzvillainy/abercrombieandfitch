@@ -117,7 +117,7 @@ export const signUpAction = async ({ request }) => {
     submit: data.get("submit"),
   };
   console.log(submission);
-  if (submission.password.length < 7) {
+  if (submission.password < 7) {
     return { error: "password must be over 7 chars long" };
   }
   if(submission.password === submission.password.toUpperCase()){

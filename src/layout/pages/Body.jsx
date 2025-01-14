@@ -16,7 +16,7 @@ function Body({ isShow }) {
 
   const { setData, setShowPreview, showPreview, showContent } =
     useContext(PreviewData);
-  const { IsLoading, error, itemData } = useFetch(
+  const { IsLoading, error, itemData, refetch } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );
@@ -39,7 +39,7 @@ function Body({ isShow }) {
           </div>
           <div className="text-sm">Have another go?</div>
           <span className="mt-5">
-            <button
+            <button onClick={refetch}
               className="items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
           focus:ring-indigo-500"
             >

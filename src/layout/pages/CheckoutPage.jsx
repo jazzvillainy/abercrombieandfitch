@@ -20,8 +20,12 @@ function CheckoutPage() {
     setCartItems((prevItems) =>
       prevItems.map((x) =>
         x.id === item.id ? { ...item, qty: item.qty + 1 } : item
+
       )
     );
+    console.log(cartItems);
+    
+    
   };
 
   const handleDec = (item) => {
