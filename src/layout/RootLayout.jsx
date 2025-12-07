@@ -44,12 +44,10 @@ function RootLayout() {
       {smallPrev && <MobilePreview />}
       {showImage && (
         <>
-          {/* <div className="flex items-center justify-around h-20 w-full bg-[#242424] z-50 top-0 "></div> */}
-        </>
+                 </>
       )}
       {sideBar && <SideBar handleSideBar2={handleSideBar2} />}
 
-      {/* <Nav /> */}
       {isShow ? <CartOverlay setCartIsShowing={setCartIsShowing} /> : ""}
       <Outlet />
       {showSearchBar && <SearchBar />}

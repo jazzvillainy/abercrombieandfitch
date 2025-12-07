@@ -9,8 +9,8 @@ import { FaLeaf } from "react-icons/fa";
 import { backdropClasses, Backdrop } from "@mui/material";
 import { circularProgressClasses, CircularProgress } from "@mui/material";
 
-function  CarouselComp({ cat, setData, setShowPreview, hidden }) {
-  const { IsLoading, error, itemData } = useFetch(
+function CarouselComp({ cat, setData, setShowPreview, hidden }) {
+  const { IsLoading, error, eachItem } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );
@@ -95,7 +95,7 @@ function  CarouselComp({ cat, setData, setShowPreview, hidden }) {
         <CircularProgress color="inherit" />
       ) : (
         <Slider autoplay autoplaySpeed={1000} {...settings}>
-          {itemData
+          {eachItem
             .filter((item) => item.category === cat)
             .map((item) => (
               <li

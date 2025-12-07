@@ -6,7 +6,7 @@ import { circularProgressClasses, CircularProgress } from "@mui/material";
 import useFetch from "../../context/useFetch";
 
 function Electronics() {
-  const { IsLoading, error, itemData } = useFetch(
+  const { IsLoading, error, eachItem } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );

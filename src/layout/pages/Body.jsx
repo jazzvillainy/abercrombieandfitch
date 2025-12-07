@@ -9,14 +9,14 @@ import { circularProgressClasses, CircularProgress } from "@mui/material";
 import NavigatorHeader from "../../components/navbar/NavigatorHeader";
 import { PreviewData } from "../../context/PreviewDataContext";
 import useFetch from "../../context/useFetch";
-import smoothScrollToBottom from "../../assets/Scroll";
+// import smoothScrollToBottom from "../../assets/Scroll";
 
 function Body({ isShow }) {
   // const classes = useStyles
 
   const { setData, setShowPreview, showPreview, showContent } =
     useContext(PreviewData);
-  const { IsLoading, error, itemData, refetch } = useFetch(
+  const { IsLoading, error, data, refetch } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );
@@ -27,7 +27,7 @@ function Body({ isShow }) {
   //     body: JSON.stringify(newPost)
   //   }).then((res)=> res.json),
   // });
-  // console.log(itemData);
+  // console.log(eachItem);
 
   if (error) {
     // throw " ";
@@ -39,7 +39,8 @@ function Body({ isShow }) {
           </div>
           <div className="text-sm">Have another go?</div>
           <span className="mt-5">
-            <button onClick={refetch}
+            <button
+              onClick={refetch}
               className="items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
           focus:ring-indigo-500"
             >
@@ -67,21 +68,21 @@ function Body({ isShow }) {
         </Backdrop>
       ) : (
         <>
-          <div className="max-md:pt-[5rem] max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:h-[100dvh] sm:h-[100dvh] bg-white">
-            <ImageApiComp />
-            <button
+          {/* <div className=" max-sm:flex max-sm:flex-col max-sm:justify-center  bg-white"> */}
+            {/* <ImageApiComp /> */}
+            {/* <button
               onClick={() => smoothScrollToBottom()}
               className="scrollDown"
-            ></button>
-          </div>
+            ></button> */}
+          {/* </div> */}
           <div
-            id="section-2"
-            className="flex will-change-transform bg-white w-[100%]  pb-[10rem] max-md:pt-[2rem]"
+            id=""
+            className="flex will-change-transform bg-green-300 w-[100%]  "
           >
             {showPreview && (
               // <div className="w-4/10">
               <Preview
-                // hidden={true}
+                // hidden={true}ce
                 setShowPreview={setShowPreview}
               />
               // </div>
@@ -90,7 +91,7 @@ function Body({ isShow }) {
               <Content
                 status={"hidden"}
                 setShowPreview={setShowPreview}
-                itemData={itemData}
+                eachItem={data}
                 IsLoading={IsLoading}
                 error={error}
               />

@@ -19,7 +19,7 @@ function CartOverlay({ setCartIsShowing }) {
   const { cartItems, setCartItems } = useContext(CartList);
 
   // const [qty, setQTy] = useState(1);
-  // const { IsLoading, error, itemData } = useFetch(
+  // const { IsLoading, error, eachItem } = useFetch(
   //   "https://fakestoreapi.com/products/",
   //   "posts"
   // );

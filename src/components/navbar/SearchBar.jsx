@@ -20,7 +20,7 @@ function SearchBar() {
   } = useContext(PreviewData);
   const { setShowSearchBar } = useContext(SearchContext);
   const [state, setState] = useState("");
-  const { IsLoading, error, itemData } = useFetch(
+  const { IsLoading, error, eachItem } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );
@@ -53,7 +53,7 @@ function SearchBar() {
         <span className="h-[10dvh] w-full bg-[#242424] text-white flex justify-between items-center">
           {/* <p> Search Item (1 item)</p> */}
           <input
-          id="search"
+            id="search"
             className="text-black right-0 w-2/3"
             placeholder=" Search Items"
             type="text"
@@ -87,7 +87,7 @@ function SearchBar() {
             </Backdrop>
           ) : (
             <ul className="p-4">
-              {itemData
+              {eachItem
                 .filter((item) => {
                   return (
                     // console.log(item.category);

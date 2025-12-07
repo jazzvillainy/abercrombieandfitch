@@ -17,7 +17,7 @@ export function Men() {
     setShowPreview,
     showPreview,
   } = useContext(PreviewData);
-  const { IsLoading, error, itemData } = useFetch(
+  const { IsLoading, error, eachItem } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );

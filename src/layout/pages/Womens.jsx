@@ -7,7 +7,7 @@ import { CircularProgress } from "@mui/material";
 import useFetch from "../../context/useFetch";
 
 function Womens() {
-  const { IsLoading, error, itemData } = useFetch(
+  const { IsLoading, error, eachItem } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );

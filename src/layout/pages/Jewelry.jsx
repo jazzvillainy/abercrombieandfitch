@@ -6,7 +6,7 @@ import { backdropClasses, Backdrop } from "@mui/material";
 import { circularProgressClasses, CircularProgress } from "@mui/material";
 
 function Jewelry() {
-  const { IsLoading, error, itemData } = useFetch(
+  const { IsLoading, error, eachItem } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );

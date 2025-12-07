@@ -18,6 +18,8 @@ import NotFound from "./layout/pages/NotFound";
 const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
+
+      
       <Route index element={<Body />} />
       <Route path="men's" element={<Men />} />
       <Route path="women's" element={<Womens />} />

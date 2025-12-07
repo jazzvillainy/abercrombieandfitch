@@ -8,7 +8,7 @@ import useFetch from "../../context/useFetch";
 function CheckoutPage() {
   const { cartItems, setCartItems } = useContext(CartList);
   const [checkOutState, setCheckOutState] = useState([]);
-  const { IsLoading, error, itemData } = useFetch(
+  const { IsLoading, error, eachItem } = useFetch(
     "https://fakestoreapi.com/products/",
     "posts"
   );
@@ -20,22 +20,27 @@ function CheckoutPage() {
     setCartItems((prevItems) =>
       prevItems.map((x) =>
         x.id === item.id ? { ...item, qty: item.qty + 1 } : item
-
       )
     );
     console.log(cartItems);
-    
-    
   };
 
   const handleDec = (item) => {
-    setCartItems((prev) =>
-      prev.map((x) => {
+    // setCartItems((prev) =>
+    //   prev.map((x) => {
+    //     //mapped element id === clicked item id
+    //     return x.id === item.id ? { ...item, qty: item.qty - 1 } : item;
+    //     // note that when usiing curly brace you have to say return
+    //   })
+    // );
+    setCartItems((prev) => [
+      ...prev.filter((x) => {
         //mapped element id === clicked item id
-        return x.id === item.id ? { ...item, qty: item.qty - 1 } : item;
+        return x.id !== item.id;
         // note that when usiing curly brace you have to say return
-      })
-    );
+      }),
+      { ...item, qty: item.qty - 1 },
+    ]);
   };
   // const handleInc = (item) => {
   //   const updatedCart = cartItems.find((x) => x.id === item.id);

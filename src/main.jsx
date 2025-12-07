@@ -17,33 +17,33 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60000, gcTime: 10 * (60 * 1000) } },
 });
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCHS4kDVeFRur6B5tEMtMy2Xv_YG2b4bAc",
-  authDomain: "abercrombiebackend.firebaseapp.com",
-  projectId: "abercrombiebackend",
-  storageBucket: "abercrombiebackend.appspot.com",
-  messagingSenderId: "993683861212",
-  appId: "1:993683861212:web:3f232d9a072b8920b48e19",
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCHS4kDVeFRur6B5tEMtMy2Xv_YG2b4bAc",
+//   authDomain: "abercrombiebackend.firebaseapp.com",
+//   projectId: "abercrombiebackend",
+//   storageBucket: "abercrombiebackend.appspot.com",
+//   messagingSenderId: "993683861212",
+//   appId: "1:993683861212:web:3f232d9a072b8920b48e19",
+// };
 
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 
-const db = getFirestore();
+// const db = getFirestore();
 
-const colRef = collection(db, "box");
+// const colRef = collection(db, "box");
 
-getDocs(colRef).then((snapshot) => {
-  // console.log(snapshot.docs);
-  let box = [];
-  snapshot.docs.forEach((doc) => {
-    box.push({ ...doc.data(), id: doc.id });
-  })
-  console.log(box);
+// getDocs(colRef).then((snapshot) => {
+//   // console.log(snapshot.docs);
+//   let box = [];
+//   snapshot.docs.forEach((doc) => {
+//     box.push({ ...doc.data(), id: doc.id });
+//   })
+//   console.log(box);
   
-}).catch( err => {
-   console.log(err.message);
-})
-const addBoxForm = document.querySelector('.add')
+// }).catch( err => {
+//    console.log(err.message);
+// })
+// const addBoxForm = document.querySelector('.add')
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { NavLink } from "react-router-dom";
 import { MyContext } from "../../context/Context";
 import { SearchContext } from "../../context/SearchBarContext";
@@ -17,9 +17,9 @@ function NavigatorHeader({ handleSideBar }) {
 
   return (
     <>
-      <div className="flex items-center justify-around h-20 w-full bg-[#242424] z-50 top-0 max-md:fixed ">
+      <div className="flex items-center justify-around h-20 w-full bg-[#242424] z-50 top-0 ">
         <button
-          className=" absolute left-0 md:hidden rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
+          className="  left-0 md:hidden rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800   
           focus:ring-indigo-500"
           onClick={handleSideBar}
         >

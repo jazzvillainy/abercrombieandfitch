@@ -7,7 +7,7 @@ import { MyContext } from "../../context/Context";
 import { PreviewData } from "../../context/PreviewDataContext";
 import { AddToCartContext } from "../../context/AddToCartContext";
 
-function ImageBlock({ el, hidden: hide, status }) {
+function ImageBlock({ el, hidden: hide, status, key }) {
   const [isOnMouseOver, setIsMouseOver] = useState(false);
   const { cartItems, setCartItems } = useContext(CartList);
   const { setTotalPrice, totalPrice } = useContext(Total);
@@ -16,6 +16,8 @@ function ImageBlock({ el, hidden: hide, status }) {
     useContext(PreviewData);
   const [isShowMore, setIsShowMore] = useState(false);
   const [description, setDescription] = useState("");
+
+  
   useEffect(() => {
     let truncateDescription = () => {
       if (isShowMore) {
@@ -38,7 +40,7 @@ function ImageBlock({ el, hidden: hide, status }) {
         setIsMouseOver(true);
       }}
       key={el.id}
-      className="bg-white transition duration-100 relative justify-between w-60 h-80 box-content text-blue-900 rounded-lg flex-col  text-xs pt-5 pl-4 pr-4 p-4 flex  hover:shadow-xl "
+      className="b transition duration-100 relative justify-between w-60 h-80 box-content text-blue-900 rounded-lg flex-col  text-xs pt-5 pl-4 pr-4 p-4 flex  hover:shadow-xl "
     >
       {isOnMouseOver && (
         <div className="flex absolute justify-between left-0 w-full">
